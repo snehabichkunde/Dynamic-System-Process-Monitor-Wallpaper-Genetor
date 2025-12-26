@@ -2,7 +2,7 @@ import subprocess
 import time
 
 # ---------------- CONFIG ----------------
-MEMORY_THRESHOLD_MB = 7000          # Notify if RAM >= 2000 MB
+MEMORY_THRESHOLD_MB = 7000      # Notify if RAM >= 2000 MB
 
 # Cooldown logic (DISABLED FOR NOW)
 COOLDOWN_SECONDS = 300
