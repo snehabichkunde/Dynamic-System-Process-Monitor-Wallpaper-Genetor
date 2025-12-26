@@ -5,6 +5,20 @@ A Linux desktop wallpaper system monitor that visualizes CPU and memory usage of
 This project automatically collects system statistics, renders them as clean horizontal bars on a generative background, sets the image as your GNOME wallpaper, and notifies you if RAM usage spikes—all without user intervention.
 
 ---
+USAGE LIMITATIONS
+
+This project is designed for Linux systems running the GNOME desktop environment.
+
+Supported:
+- Linux + GNOME (Ubuntu, Fedora, Debian)
+- Systems with gsettings, notify-send, and cron
+
+Not Supported (without changes):
+- Windows or macOS
+- KDE, XFCE, Cinnamon, or other non-GNOME desktops
+- Headless servers or systems without a GUI
+
+Using this project outside the supported environment will require manual modifications.
 
 ## ✨ Features
 
