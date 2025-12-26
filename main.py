@@ -40,8 +40,9 @@ def truncate_to_fit(ax, text, max_x, y, fontsize):
 
 def generate_wallpaper(data):
     apps = [d[0] for d in data]
-    mems = [d[1] for d in data]
-    cpus = [d[2] for d in data]
+    pids = [d[1] for d in data]
+    mems = [d[2] for d in data]
+    cpus = [d[3] for d in data]
 
     max_mem = max(mems)
     mem_norm = [(m / max_mem) * BAR_MAX_UNITS for m in mems]
@@ -128,9 +129,11 @@ def generate_wallpaper(data):
     panel_ax.axvline(bar_start_x, color="#1f2933", linewidth=1)
 
     for i, app in enumerate(apps):
-        safe_name = truncate_to_fit(
+        label = f"[{pids[i]}] {app}"
+
+        safe_label = truncate_to_fit(
             panel_ax,
-            app,
+            label,
             bar_start_x - 1.5,
             y_positions[i],
             fontsize=14
@@ -139,7 +142,7 @@ def generate_wallpaper(data):
         panel_ax.text(
             bar_start_x - 1.5,
             y_positions[i],
-            safe_name,
+            safe_label,
             va="center",
             ha="right",
             fontsize=14,
@@ -167,7 +170,6 @@ def generate_wallpaper(data):
 
     plt.savefig(OUTPUT_IMAGE, dpi=100, facecolor="#0b0e14")
     plt.close()
-
 
 def set_wallpaper():
     subprocess.run([
