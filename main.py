@@ -3,6 +3,7 @@
 import matplotlib.pyplot as plt
 import subprocess
 from datetime import datetime
+from notifier import check_high_memory
 
 from monitor import collect_usage
 from background import draw_neural_background
@@ -185,3 +186,4 @@ if __name__ == "__main__":
     if data:
         generate_wallpaper(data)
         set_wallpaper()
+    check_high_memory(data)
